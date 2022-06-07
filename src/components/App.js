@@ -13,8 +13,8 @@ const App = (props) => {
     <div>
       <LoadingBar />
       {/* {props.loading === true ? null : <Dashboard />} */}
-      {props.loading === true ? null : <PollPage match={{ params: { id: "vthrdm985a262al8qx3do" } }} />}
-      {/* {props.loading === true ? null : <PollPage match={{ params: { id: "loxhs1bqm25b708cmbf3g" } }} />} */}
+      {/* {props.loading === true ? null : <PollPage match={{ params: { id: "vthrdm985a262al8qx3do" } }} />} */}
+      {props.loading === true ? null : <PollPage match={{ params: { id: "loxhs1bqm25b708cmbf3g" } }} />}
     </div>
   );
 };

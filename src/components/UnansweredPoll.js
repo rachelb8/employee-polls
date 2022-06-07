@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { handleAddAnswer } from "../actions/polls";
 import {
   MDBCard,
   MDBCardBody,
@@ -8,7 +9,18 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 
-const UnansweredPoll = ({ id, poll, author }) => {
+const UnansweredPoll = ({ id, dispatch, poll, author }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    dispatch(handleAddAnswer(id, e.target.id));
+
+
+    // if (!id) {
+    //     navigate("/");
+    //   }
+  };
+
   return (
     <div>
       <h2>Poll by {author.name} </h2>
@@ -23,7 +35,7 @@ const UnansweredPoll = ({ id, poll, author }) => {
           <MDBCard>
             <MDBCardBody>
               <MDBCardTitle>{poll.optionOne.text}</MDBCardTitle>
-              <MDBBtn>Select</MDBBtn>
+              <MDBBtn id="optionOne" onClick={handleClick}>Select</MDBBtn>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
@@ -31,7 +43,7 @@ const UnansweredPoll = ({ id, poll, author }) => {
           <MDBCard>
             <MDBCardBody>
               <MDBCardTitle>{poll.optionTwo.text}</MDBCardTitle>
-              <MDBBtn>Select</MDBBtn>
+              <MDBBtn id="optionTwo" onClick={handleClick} >Select</MDBBtn>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>

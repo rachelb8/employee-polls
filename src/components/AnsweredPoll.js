@@ -44,7 +44,7 @@ const AnsweredPoll = ({ authedUser, poll, author }) => {
             <MDBCardBody>
               <MDBCardTitle>{poll.optionOne.text}</MDBCardTitle>
               <MDBCardText>
-                {userSelectedOptionOne ? "You selected this answer. " : null}
+                {userSelectedOptionOne ? "You selected this option. " : null}
                 Selected by {optionOneVotes.length} out of {totalVotes}{" "}
                 employees
               </MDBCardText>
@@ -68,7 +68,7 @@ const AnsweredPoll = ({ authedUser, poll, author }) => {
             <MDBCardBody>
               <MDBCardTitle>{poll.optionTwo.text}</MDBCardTitle>
               <MDBCardText>
-                {userSelectedOptionTwo ? "You selected this answer. " : null}
+                {userSelectedOptionTwo ? "You selected this option. " : null}
                 Selected by {optionTwoVotes.length} out of {totalVotes}{" "}
                 employees
               </MDBCardText>

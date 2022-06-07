@@ -1,4 +1,5 @@
 import { savePoll, savePollAnswer } from "../utils/api";
+import { addAnswerToUser, addPollToUser } from "./users";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 export const RECEIVE_POLLS = "RECEIVE_POLLS";
@@ -24,6 +25,7 @@ export function handleAddPoll(optionOne, optionTwo) {
       author: authedUser,
     })
       .then((poll) => dispatch(addPoll(poll)))
+      .then((poll) => dispatch(addPollToUser(poll)))
       .then(() => dispatch(hideLoading()));
   };
 }
@@ -38,11 +40,9 @@ export function receivePolls(polls) {
 function addAnswer({ qid, answer, authedUser }) {
   return {
     type: ADD_ANSWER,
-    answerInfo: {
-      qid,
-      answer,
-      authedUser,
-    },
+    qid,
+    answer,
+    authedUser,
   };
 }
 
@@ -66,6 +66,7 @@ export function handleAddAnswer(qid, answer) {
           })
         )
       )
+      .then(() => dispatch(addAnswerToUser({ qid, answer, authedUser })))
       .then(() => dispatch(hideLoading()));
   };
 }

@@ -12,7 +12,6 @@ const PollPage = ({ id, pollAnswered }) => {
 
 const mapStateToProps = ({ authedUser, users }, props) => {
   // const { id } = props.router.params;
-  // const { pollId } = 'xj352vofupe1dqz9emx13r';
   const { id } = props.match.params;
   const pollAnswered = users[authedUser].answers[id] ? true : false;
 

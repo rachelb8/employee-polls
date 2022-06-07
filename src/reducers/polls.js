@@ -11,11 +11,11 @@ export default function polls(state = {}, action) {
     case ADD_POLL:
       return {
         ...state,
-        [action.question.id]: action.question,
+        [action.poll.id]: action.poll,
       };
 
     case ADD_ANSWER: {
-      const { qid, answer, authedUser } = action.answerInfo;
+      const { qid, answer, authedUser } = action;
 
       return {
         ...state,
