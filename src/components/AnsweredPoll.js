@@ -10,7 +10,7 @@ import {
   MDBProgressBar,
 } from "mdb-react-ui-kit";
 
-const AnsweredPoll = ({ authedUser, poll, author }) => {
+const AnsweredPoll = ({ authedUser, poll }) => {
   const optionOneVotes = poll.optionOne.votes;
   const optionTwoVotes = poll.optionTwo.votes;
 
@@ -28,13 +28,6 @@ const AnsweredPoll = ({ authedUser, poll, author }) => {
 
   return (
     <div>
-      <h2>Poll by {author.name} </h2>
-      <img
-        src={author.avatarURL}
-        className="img-fluid rounded shadow-2-strong"
-        alt="poll author avatar"
-      />
-      <h3>Would You Rather?</h3>
       <MDBRow className="row-cols-1 row-cols-md-2 g-4">
         <MDBCol>
           <MDBCard
@@ -89,13 +82,12 @@ const AnsweredPoll = ({ authedUser, poll, author }) => {
   );
 };
 
-function mapStateToProps({ authedUser, polls, users }, { id }) {
+function mapStateToProps({ authedUser, polls }, { id }) {
   const poll = polls[id];
 
   return {
     authedUser,
     poll,
-    author: poll ? users[poll.author] : null,
   };
 }
 

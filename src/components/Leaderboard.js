@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import defaultAvatar from "../icons/defaultAvatar.png";
 import {
   MDBTable,
   MDBTableHead,
@@ -17,7 +18,7 @@ const Leaderboard = ({ users }) => {
 
   return (
     <div className="mb-4 d-flex align-items-center justify-content-center">
-      <MDBTable style={{ width: "48rem" }}>
+      <MDBTable style={{ width: "56rem" }}>
         <MDBTableHead light>
           <tr>
             <th scope="col">Users</th>
@@ -37,7 +38,9 @@ const Leaderboard = ({ users }) => {
                       <img
                         alt="avatar"
                         className="avatar"
-                        src={`${user.avatarURL}`}
+                        src={
+                          user.avatarURL ? `${user.avatarURL}` : defaultAvatar
+                        }
                       />
                     </MDBCol>
                     <MDBCol>

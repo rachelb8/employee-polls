@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import defaultAvatar from "../icons/defaultAvatar.png";
 import {
   MDBCard,
   MDBCardImage,
@@ -11,7 +12,6 @@ import {
 import { formatDate } from "../utils/helpers";
 
 const Poll = ({ poll, author }) => {
-  const defaultAvatar = "../icons/defaultAvatar.png"; // TODO: fix
   const avatarImage = author.avatarURL ? author.avatarURL : defaultAvatar;
 
   return (
