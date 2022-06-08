@@ -18,7 +18,7 @@ export function addAnswerToUser({ qid, answer, authedUser }) {
   };
 }
 
-export function addPollToUser(poll) {
+export function addPollToUser({ poll }) {
   return {
     type: ADD_POLL_TO_USER,
     poll,

@@ -1,4 +1,8 @@
-import { RECEIVE_USERS, ADD_POLL_TO_USER, ADD_ANSWER_TO_USER } from "../actions/users";
+import {
+  RECEIVE_USERS,
+  ADD_POLL_TO_USER,
+  ADD_ANSWER_TO_USER,
+} from "../actions/users";
 
 export default function users(state = {}, action) {
   switch (action.type) {
@@ -12,7 +16,7 @@ export default function users(state = {}, action) {
         ...state,
         [action.poll.author]: {
           ...state[action.poll.author],
-          polls: state[action.poll.author].polls.concat([
+          questions: state[action.poll.author].questions.concat([
             action.poll.id,
           ]),
         },
