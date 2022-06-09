@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
 
 const NewPoll = ({ dispatch }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
 
@@ -19,16 +19,8 @@ const NewPoll = ({ dispatch }) => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    console.log(optionOne);
-    console.log(optionTwo);
     dispatch(handleAddPoll(optionOne, optionTwo));
-
-    setOptionOne("");
-    setOptionTwo("");
-
-    // if (!id) {
-    //     navigate("/");
-    //   }
+    navigate("/");
   };
 
   return (

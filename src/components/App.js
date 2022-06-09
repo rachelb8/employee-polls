@@ -1,32 +1,40 @@
-import { useEffect } from "react";
+import { useEffect, Fragment } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
-import Dashboard from "./Dashboard";
+import { Routes, Route } from "react-router-dom";
 import LoadingBar from "react-redux-loading-bar";
+import Nav from "./Nav";
+import Dashboard from "./Dashboard";
 import PollPage from "./PollPage";
 import NewPoll from "./NewPoll";
-import Leaderboard from "./Leaderboard";
 import LoginPage from "./LoginPage";
+import Leaderboard from "./Leaderboard";
 
 const App = (props) => {
   useEffect(() => {
     props.dispatch(handleInitialData());
   }, []);
    return (
-    <div className="container">
+     <Fragment>
       <LoadingBar />
-      {/* {props.loading === true ? null : <Dashboard />} */}
-      {/* {props.loading === true ? null : <PollPage match={{ params: { id: "vthrdm985a262al8qx3do" } }} />} */}
-      {/* {props.loading === true ? null : <PollPage match={{ params: { id: "loxhs1bqm25b708cmbf3g" } }} />} */}
-      {/* {props.loading === true ? null : <NewPoll />} */}
-      {/* {props.loading === true ? null : <Leaderboard />} */}
-      {props.loading === true ? null : <LoginPage />}
-    </div>
+      <Nav />
+      <div className="container">
+        {props.loading === true ? null : (
+          <Routes>
+            <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/" exact element={<Dashboard />} />
+            <Route path="/questions/:id" element={<PollPage />} />
+            <Route path="/add" element={<NewPoll />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+          </Routes>
+        )}
+      </div>
+  </Fragment>
   );
 };
 
-const mapStateToProps = ({ authedUser }) => ({
-  loading: authedUser === null,
+const mapStateToProps = ({ polls }) => ({
+  loading: polls === null,
 });
 
 export default connect(mapStateToProps)(App);

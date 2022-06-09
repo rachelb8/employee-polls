@@ -11,7 +11,7 @@ import { MDBInput, MDBBtn, MDBModal,
 import loginImage from "../icons/loginImage.png";
 
 const LoginPage = ({ dispatch, users }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [modal, setModal] = useState(false);
@@ -30,17 +30,11 @@ const LoginPage = ({ dispatch, users }) => {
 
     const user = users[username]; 
     if(user && user.password === password){
-      dispatch(setAuthedUser(user));
+      dispatch(setAuthedUser(username));
+      navigate("/");
     } else {
       toggleShow();
     }
-
-    // setUsername("");
-    // setPassword("");
-
-    // if (!id) {
-    //     navigate("/");
-    //   }
   };
 
   return (

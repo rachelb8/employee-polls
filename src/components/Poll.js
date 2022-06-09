@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import defaultAvatar from "../icons/defaultAvatar.png";
 import {
   MDBCard,
@@ -24,9 +25,9 @@ const Poll = ({ poll, author }) => {
         />
         <MDBCardBody className="text-center">
           <MDBCardTitle>{author.name} submitted a poll</MDBCardTitle>
-          {/* <Link to={`/questions/${id}`}> TODO: link to poll page */}
-          <MDBBtn>Show</MDBBtn>
-          {/* </Link> */}
+          <Link to={`/questions/${poll.id}`}>
+            <MDBBtn>Show</MDBBtn>
+          </Link>
         </MDBCardBody>
         <MDBCardFooter>
           <small className="text-muted">{formatDate(poll.timestamp)}</small>
