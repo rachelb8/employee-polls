@@ -17,3 +17,15 @@ code {
   border-radius: 25px;
   margin: 10px;
 }
+
+.image {
+  height: 200px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
