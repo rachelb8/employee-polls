@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import reducer from "./reducers";
 import middleware from "./middleware";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import "./index.css";
+import "./css/index.css";
 
 const store = createStore(reducer, middleware);
 
