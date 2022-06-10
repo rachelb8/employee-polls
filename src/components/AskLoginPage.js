@@ -17,7 +17,7 @@ const AskLoginPage = () => {
         <h1>Employee Polls</h1>
         <img src={loginImage} className="image" alt="login" />
         <h2>Please login to view your polls.</h2>
-        <MDBBtn onClick={handleClick}>Let's login!</MDBBtn>
+        <MDBBtn data-testid="login-button" onClick={handleClick}>Let's login!</MDBBtn>
       </div>
     </div>
   );

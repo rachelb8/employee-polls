@@ -49,6 +49,7 @@ const LoginPage = ({ dispatch, users }) => {
         <img src={loginImage} className="image" alt="login" />
         <h4>Username</h4>
         <MDBInput
+          data-testid="username-input"
           wrapperClass="mb-4"
           id="username"
           label="Username"
@@ -57,6 +58,7 @@ const LoginPage = ({ dispatch, users }) => {
         />
         <h4>Password</h4>
         <MDBInput
+          data-testid="password-input"
           wrapperClass="mb-4"
           id="password"
           label="Password"
@@ -64,6 +66,7 @@ const LoginPage = ({ dispatch, users }) => {
           onChange={handleChange}
         />
         <MDBBtn
+          data-testid="login-button"
           onClick={handleClick}
           disabled={username === "" || password === ""}
         >
@@ -71,7 +74,7 @@ const LoginPage = ({ dispatch, users }) => {
         </MDBBtn>
       </div>
 
-      <MDBModal tabIndex="-1" show={modal} setShow={setModal}>
+      <MDBModal data-testid="error-modal" tabIndex="-1" show={modal} setShow={setModal}>
         <MDBModalDialog centered>
           <MDBModalContent>
             <MDBModalHeader>
