@@ -28,26 +28,32 @@ const Nav = ({ dispatch, authedUser, users }) => {
       {user && (
         <MDBNavbar expand="lg" light bgColor="light">
           <MDBContainer fluid>
-            <MDBNavbarBrand>Employee Polls</MDBNavbarBrand>
-            <div>
-              <Link to="/">Home</Link>
-            </div>
-            <div>
-              <Link to="/leaderboard">Leaderboard</Link>
-            </div>
-            <div>
-              <Link to="/add">New</Link>
+            <div className="d-flex justify-content-start">
+              <div className="p-2">
+                <MDBNavbarBrand>Employee Polls</MDBNavbarBrand>
+              </div>
+              <div className="p-2 m-2">
+                <Link to="/">Home</Link>
+              </div>
+              <div className="p-2 m-2">
+                <Link to="/leaderboard">Leaderboard</Link>
+              </div>
+              <div className="p-2 m-2 flex-fill">
+                <Link to="/add">New</Link>
+              </div>
             </div>
 
-            <div style={{ width: "16rem" }}>
+            <div className="px-2 d-flex align-items-center justify-content-center">
               <img
                 alt="avatar"
                 className="avatar"
                 src={user.avatarURL ? `${user.avatarURL}` : defaultAvatar}
               />
               <span>{user.id}</span>
+              <MDBBtn className="m-2" onClick={handleClick}>
+                Logout
+              </MDBBtn>
             </div>
-            <MDBBtn style={{ width: "8rem" }} onClick={handleClick}>Logout</MDBBtn>
           </MDBContainer>
         </MDBNavbar>
       )}

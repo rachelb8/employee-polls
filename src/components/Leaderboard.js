@@ -17,7 +17,7 @@ const Leaderboard = ({ users }) => {
   const sortedUsers = usersInfo.sort((a, b) => b.score - a.score);
 
   return (
-    <div className="mb-4 d-flex align-items-center justify-content-center">
+    <div className="m-4 d-flex align-items-center justify-content-center">
       <MDBTable style={{ width: "56rem" }}>
         <MDBTableHead light>
           <tr>

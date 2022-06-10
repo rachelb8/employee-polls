@@ -38,7 +38,7 @@ const LoginPage = ({ dispatch, users }) => {
   };
 
   return (
-    <div className="text-center mb-4 d-flex align-items-center justify-content-center">
+    <div className="text-center m-4 d-flex align-items-center justify-content-center">
       <div style={{ width: "48rem" }}>
         <h1>Employee Polls</h1>
         <img
