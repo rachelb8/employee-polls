@@ -55,7 +55,5 @@ describe("LoginPage", () => {
     fireEvent.change(inputPassword, { target: { value: "incorrect" } });
     fireEvent.click(loginButton);
     expect(errorModal).toBeInTheDocument();
-    fireEvent.click(component.getByTestId("close-modal-button"));
   });
-
 });
