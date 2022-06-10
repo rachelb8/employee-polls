@@ -10,9 +10,8 @@ import {
   MDBTabsContent,
   MDBTabsPane,
 } from "mdb-react-ui-kit";
-import AskLoginPage from "./AskLoginPage";
 
-const Dashboard = ({ authedUser, unansweredPollIds, answeredPollIds }) => {
+const Dashboard = ({ unansweredPollIds, answeredPollIds }) => {
   const [tabActive, setTabActive] = useState("tabNewPolls");
 
   const handleTabClick = (value) => {
@@ -25,43 +24,39 @@ const Dashboard = ({ authedUser, unansweredPollIds, answeredPollIds }) => {
 
   return (
     <div>
-      {!authedUser ? (
-        <AskLoginPage />
-      ) : (
-        <div>
-          <MDBCard className="text-center">
-            <MDBCardHeader>
-              <MDBTabs pills className="card-header-tabs">
-                <MDBTabsItem>
-                  <MDBTabsLink
-                    onClick={() => handleTabClick("tabNewPolls")}
-                    active={tabActive === "tabNewPolls"}
-                  >
-                    New Polls
-                  </MDBTabsLink>
-                </MDBTabsItem>
-                <MDBTabsItem>
-                  <MDBTabsLink
-                    onClick={() => handleTabClick("tabCompletedPolls")}
-                    active={tabActive === "tabCompletedPolls"}
-                  >
-                    Completed Polls
-                  </MDBTabsLink>
-                </MDBTabsItem>
-              </MDBTabs>
+      <div>
+        <MDBCard className="text-center">
+          <MDBCardHeader>
+            <MDBTabs pills className="card-header-tabs">
+              <MDBTabsItem>
+                <MDBTabsLink
+                  onClick={() => handleTabClick("tabNewPolls")}
+                  active={tabActive === "tabNewPolls"}
+                >
+                  New Polls
+                </MDBTabsLink>
+              </MDBTabsItem>
+              <MDBTabsItem>
+                <MDBTabsLink
+                  onClick={() => handleTabClick("tabCompletedPolls")}
+                  active={tabActive === "tabCompletedPolls"}
+                >
+                  Completed Polls
+                </MDBTabsLink>
+              </MDBTabsItem>
+            </MDBTabs>
 
-              <MDBTabsContent>
-                <MDBTabsPane show={tabActive === "tabNewPolls"}>
-                  <PollContainer pollIds={unansweredPollIds} />
-                </MDBTabsPane>
-                <MDBTabsPane show={tabActive === "tabCompletedPolls"}>
-                  <PollContainer pollIds={answeredPollIds} />
-                </MDBTabsPane>
-              </MDBTabsContent>
-            </MDBCardHeader>
-          </MDBCard>
-        </div>
-      )}
+            <MDBTabsContent>
+              <MDBTabsPane show={tabActive === "tabNewPolls"}>
+                <PollContainer pollIds={unansweredPollIds} />
+              </MDBTabsPane>
+              <MDBTabsPane show={tabActive === "tabCompletedPolls"}>
+                <PollContainer pollIds={answeredPollIds} />
+              </MDBTabsPane>
+            </MDBTabsContent>
+          </MDBCardHeader>
+        </MDBCard>
+      </div>
     </div>
   );
 };
@@ -81,7 +76,6 @@ const mapStateToProps = ({ authedUser, polls, users }) => {
   }
 
   return {
-    authedUser,
     unansweredPollIds,
     answeredPollIds,
   };

@@ -3,7 +3,6 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import UnansweredPoll from "./UnansweredPoll";
 import AnsweredPoll from "./AnsweredPoll";
 import defaultAvatar from "../icons/defaultAvatar.png";
-import AskLoginPage from "./AskLoginPage";
 
 const withRouter = (Component) => {
   const ComponentWithRouterProp = (props) => {
@@ -16,14 +15,11 @@ const withRouter = (Component) => {
   return ComponentWithRouterProp;
 };
 
-const PollPage = ({ id, authedUser, pollAnswered, author }) => {
-  if (!authedUser) {
-    return <AskLoginPage />;
-  }
+const PollPage = ({ id, pollAnswered, author }) => {
   return (
     <div className="text-center m-4">
       {!id || !author ? (
-        <h1>404: Not Found</h1>
+        <h1>404: Poll Not Found</h1>
       ) : (
         <div>
           <h2>Poll by {author.name} </h2>
@@ -50,7 +46,6 @@ const mapStateToProps = ({ authedUser, polls, users }, props) => {
   }
 
   return {
-    authedUser,
     id,
     pollAnswered,
     author: poll ? users[poll.author] : null,

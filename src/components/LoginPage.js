@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   MDBInput,
   MDBBtn,
@@ -17,6 +17,7 @@ import loginImage from "../icons/loginImage.png";
 
 const LoginPage = ({ dispatch, users }) => {
   const navigate = useNavigate();
+  const { state } = useLocation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [modal, setModal] = useState(false);
@@ -36,7 +37,7 @@ const LoginPage = ({ dispatch, users }) => {
     const user = users[username];
     if (user && user.password === password) {
       dispatch(setAuthedUser(username));
-      navigate("/");
+      navigate(state?.path || "/dashboard");
     } else {
       toggleShow();
     }
@@ -74,7 +75,12 @@ const LoginPage = ({ dispatch, users }) => {
         </MDBBtn>
       </div>
 
-      <MDBModal data-testid="error-modal" tabIndex="-1" show={modal} setShow={setModal}>
+      <MDBModal
+        data-testid="error-modal"
+        tabIndex="-1"
+        show={modal}
+        setShow={setModal}
+      >
         <MDBModalDialog centered>
           <MDBModalContent>
             <MDBModalHeader>

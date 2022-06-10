@@ -7,19 +7,14 @@ import {
   MDBCol,
   MDBRow,
 } from "mdb-react-ui-kit";
-import AskLoginPage from "./AskLoginPage";
 
-const Leaderboard = ({ authedUser, users }) => {
+const Leaderboard = ({ users }) => {
   let usersInfo = Object.values(users);
   usersInfo.map(
     (user) =>
       (user.score = user.questions.length + Object.keys(user.answers).length)
   );
   const sortedUsers = usersInfo.sort((a, b) => b.score - a.score);
-
-  if (!authedUser) {
-    return <AskLoginPage />;
-  }
 
   return (
     <div className="m-4 d-flex align-items-center justify-content-center">
@@ -67,9 +62,8 @@ const Leaderboard = ({ authedUser, users }) => {
   );
 };
 
-function mapStateToProps({ authedUser, users }) {
+function mapStateToProps({ users }) {
   return {
-    authedUser,
     users,
   };
 }

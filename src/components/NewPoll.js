@@ -3,9 +3,8 @@ import { connect } from "react-redux";
 import { handleAddPoll } from "../actions/polls";
 import { useNavigate } from "react-router-dom";
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
-import AskLoginPage from "./AskLoginPage";
 
-const NewPoll = ({ dispatch, authedUser }) => {
+const NewPoll = ({ dispatch }) => {
   const navigate = useNavigate();
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
@@ -23,10 +22,6 @@ const NewPoll = ({ dispatch, authedUser }) => {
     dispatch(handleAddPoll(optionOne, optionTwo));
     navigate("/");
   };
-
-  if (!authedUser) {
-    return <AskLoginPage />;
-  }
 
   return (
     <div className="text-center m-4 d-flex align-items-center justify-content-center">
@@ -60,10 +55,4 @@ const NewPoll = ({ dispatch, authedUser }) => {
   );
 };
 
-function mapStateToProps({ authedUser }) {
-  return {
-    authedUser,
-  };
-}
-
-export default connect(mapStateToProps)(NewPoll);
+export default connect()(NewPoll);
