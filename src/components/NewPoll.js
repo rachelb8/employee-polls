@@ -30,6 +30,7 @@ const NewPoll = ({ dispatch }) => {
         <h3 className="text-muted">Create Your Own Poll</h3>
         <h4>First Option</h4>
         <MDBInput
+          data-testid="option-one-input"
           wrapperClass="mb-4"
           id="optionOne"
           label="Option One"
@@ -38,6 +39,7 @@ const NewPoll = ({ dispatch }) => {
         />
         <h4>Second Option</h4>
         <MDBInput
+          data-testid="option-two-input"
           wrapperClass="mb-4"
           id="optionTwo"
           label="Option Two"
@@ -45,6 +47,7 @@ const NewPoll = ({ dispatch }) => {
           onChange={handleChange}
         />
         <MDBBtn
+          data-testid="submit-button"
           onClick={handleClick}
           disabled={optionOne === "" || optionTwo === ""}
         >

@@ -33,7 +33,6 @@ To get started developing right away:
     └── components
     │   ├── AnsweredPoll.js # displays answered poll information
     │   ├── App.js # root of the app
-    │   ├── AskLoginPage.js # asks user to login before they can view other pages
     │   ├── Dashboard.js # displays answered and unanswered polls with a nav bar
     │   ├── Leaderboard.js # displays user rankings
     │   ├── LoginPage.js # allows user to login
@@ -56,6 +55,12 @@ To get started developing right away:
     │   ├── index.js
     │   ├── polls.js
     │   └── users.js
+    └── tests # jest tests
+    │   └── __snapshots__ # test snapshots
+    │   │   └── NewPoll.test.js.snap
+    │   ├── _DATA.test.js
+    │   ├── LoginPage.test.js
+    │   └── NewPoll.test.js
     └── utils
     │   ├── _DATA.js # represents a fake database and methods that allow access to the data with instructions for the methods below
     │   ├── api.js # functions as an API to get and update data from _DATA.js
