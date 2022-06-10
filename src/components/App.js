@@ -10,6 +10,7 @@ import NewPoll from "./NewPoll";
 import LoginPage from "./LoginPage";
 import Leaderboard from "./Leaderboard";
 
+// React Router Auth Documentation: https://ui.dev/react-router-protected-routes-authentication
 function RequireAuth({ children, authedUser }) {
   const location = useLocation();
 
