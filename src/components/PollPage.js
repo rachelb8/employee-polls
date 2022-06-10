@@ -17,14 +17,12 @@ const withRouter = (Component) => {
 };
 
 const PollPage = ({ id, authedUser, pollAnswered, author }) => {
-  if(!authedUser){
-    return(
-      <AskLoginPage />
-    );
+  if (!authedUser) {
+    return <AskLoginPage />;
   }
   return (
     <div className="text-center m-4">
-      {(!id || !author) ? (
+      {!id || !author ? (
         <h1>404: Not Found</h1>
       ) : (
         <div>
@@ -46,8 +44,8 @@ const mapStateToProps = ({ authedUser, polls, users }, props) => {
   const { id } = props.router.params;
   const poll = polls[id];
 
-  let pollAnswered = null
-  if(authedUser && users){
+  let pollAnswered = null;
+  if (authedUser && users) {
     pollAnswered = users[authedUser].answers[id] ? true : false;
   }
 

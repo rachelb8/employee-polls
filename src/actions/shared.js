@@ -1,6 +1,6 @@
 import { getInitialData } from "../utils/api";
 import { receiveUsers } from "./users";
-import { receivePolls} from "./polls";
+import { receivePolls } from "./polls";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
 export function handleInitialData() {

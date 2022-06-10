@@ -24,10 +24,8 @@ const NewPoll = ({ dispatch, authedUser }) => {
     navigate("/");
   };
 
-  if(!authedUser){
-    return(
-      <AskLoginPage />
-    );
+  if (!authedUser) {
+    return <AskLoginPage />;
   }
 
   return (

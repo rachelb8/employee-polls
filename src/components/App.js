@@ -13,15 +13,16 @@ import Leaderboard from "./Leaderboard";
 const App = (props) => {
   useEffect(() => {
     props.dispatch(handleInitialData());
+    // eslint-disable-next-line
   }, []);
-   return (
-     <Fragment>
+  return (
+    <Fragment>
       <LoadingBar />
       <Nav />
       <div className="container">
         {props.loading === true ? null : (
           <Routes>
-            <Route path="/login" element={<LoginPage/>}/>
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/" exact element={<Dashboard />} />
             <Route path="/questions/:id" element={<PollPage />} />
             <Route path="/add" element={<NewPoll />} />
@@ -29,7 +30,7 @@ const App = (props) => {
           </Routes>
         )}
       </div>
-  </Fragment>
+    </Fragment>
   );
 };
 

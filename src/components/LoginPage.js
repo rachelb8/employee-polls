@@ -2,12 +2,17 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
 import { useNavigate } from "react-router-dom";
-import { MDBInput, MDBBtn, MDBModal,
+import {
+  MDBInput,
+  MDBBtn,
+  MDBModal,
   MDBModalDialog,
   MDBModalContent,
   MDBModalHeader,
   MDBModalTitle,
-  MDBModalBody, MDBModalFooter  } from "mdb-react-ui-kit";
+  MDBModalBody,
+  MDBModalFooter,
+} from "mdb-react-ui-kit";
 import loginImage from "../icons/loginImage.png";
 
 const LoginPage = ({ dispatch, users }) => {
@@ -28,8 +33,8 @@ const LoginPage = ({ dispatch, users }) => {
   const handleClick = (e) => {
     e.preventDefault();
 
-    const user = users[username]; 
-    if(user && user.password === password){
+    const user = users[username];
+    if (user && user.password === password) {
       dispatch(setAuthedUser(username));
       navigate("/");
     } else {
@@ -41,11 +46,7 @@ const LoginPage = ({ dispatch, users }) => {
     <div className="text-center m-4 d-flex align-items-center justify-content-center">
       <div style={{ width: "48rem" }}>
         <h1>Employee Polls</h1>
-        <img
-          src={loginImage}
-          className="image"
-          alt="login"
-        />
+        <img src={loginImage} className="image" alt="login" />
         <h4>Username</h4>
         <MDBInput
           wrapperClass="mb-4"
@@ -62,27 +63,30 @@ const LoginPage = ({ dispatch, users }) => {
           type="password"
           onChange={handleChange}
         />
-        <MDBBtn onClick={handleClick} disabled={username === "" || password === ""}>
+        <MDBBtn
+          onClick={handleClick}
+          disabled={username === "" || password === ""}
+        >
           Login
         </MDBBtn>
       </div>
 
-      <MDBModal tabIndex='-1' show={modal} setShow={setModal}>
+      <MDBModal tabIndex="-1" show={modal} setShow={setModal}>
         <MDBModalDialog centered>
           <MDBModalContent>
             <MDBModalHeader>
               <MDBModalTitle>Login Failed</MDBModalTitle>
-              <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+              <MDBBtn
+                className="btn-close"
+                color="none"
+                onClick={toggleShow}
+              ></MDBBtn>
             </MDBModalHeader>
             <MDBModalBody>
-              <p>
-                Please try logging in again.
-              </p>
+              <p>Please try logging in again.</p>
             </MDBModalBody>
             <MDBModalFooter>
-              <MDBBtn onClick={toggleShow}>
-                Close
-              </MDBBtn>
+              <MDBBtn onClick={toggleShow}>Close</MDBBtn>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>

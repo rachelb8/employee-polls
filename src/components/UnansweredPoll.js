@@ -14,10 +14,6 @@ const UnansweredPoll = ({ id, dispatch, poll }) => {
     e.preventDefault();
 
     dispatch(handleAddAnswer(id, e.target.id));
-
-    // if (!id) {
-    //     navigate("/");
-    //   }
   };
 
   return (

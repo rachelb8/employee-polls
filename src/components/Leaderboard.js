@@ -17,10 +17,8 @@ const Leaderboard = ({ authedUser, users }) => {
   );
   const sortedUsers = usersInfo.sort((a, b) => b.score - a.score);
 
-  if(!authedUser){
-    return(
-      <AskLoginPage />
-    );
+  if (!authedUser) {
+    return <AskLoginPage />;
   }
 
   return (
