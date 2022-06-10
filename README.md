@@ -22,7 +22,8 @@ To get started developing right away:
 ├── package-lock.json # dependency lock file
 ├── public
 │   ├── favicon.ico # react icon
-│   └── index.html # do not modify
+│   ├── index.html # do not modify
+│   └── manifest.json # do not modify
 └── src
     └── actions # redux actions
     │   ├── authedUser.js
