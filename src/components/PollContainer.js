@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Poll from "./Poll";
 import { MDBRow } from "mdb-react-ui-kit";
 
@@ -12,5 +13,9 @@ const PollContainer = ({ pollIds }) => {
     </div>
   );
 };
+
+PollContainer.propTypes = {
+  pollIds: PropTypes.array.isRequired,
+}
 
 export default PollContainer;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import UnansweredPoll from "./UnansweredPoll";
@@ -51,5 +52,10 @@ const mapStateToProps = ({ authedUser, polls, users }, props) => {
     author: poll ? users[poll.author] : null,
   };
 };
+
+PollPage.propTypes = {
+  id: PropTypes.string.isRequired,
+  pollAnswered: PropTypes.bool.isRequired,
+}
 
 export default withRouter(connect(mapStateToProps)(PollPage));

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { resetAuthedUser } from "../actions/authedUser";
@@ -66,6 +67,12 @@ function mapStateToProps({ authedUser, users }) {
     authedUser,
     users,
   };
+}
+
+Nav.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  authedUser: PropTypes.string,
+  users: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(Nav);

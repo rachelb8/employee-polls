@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import defaultAvatar from "../icons/defaultAvatar.png";
 import {
@@ -66,6 +67,10 @@ function mapStateToProps({ users }) {
   return {
     users,
   };
+}
+
+Leaderboard.propTypes = {
+  users: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(Leaderboard);

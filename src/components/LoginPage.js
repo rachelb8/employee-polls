@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
@@ -108,6 +109,11 @@ function mapStateToProps({ users }) {
   return {
     users,
   };
+}
+
+LoginPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  users: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(LoginPage);

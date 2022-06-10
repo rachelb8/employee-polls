@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import React, { useState } from "react";
 import PollContainer from "./PollContainer";
@@ -80,5 +81,10 @@ const mapStateToProps = ({ authedUser, polls, users }) => {
     answeredPollIds,
   };
 };
+
+Dashboard.propTypes = {
+  unansweredPollIds: PropTypes.array.isRequired,
+  answeredPollIds: PropTypes.array.isRequired,
+}
 
 export default connect(mapStateToProps)(Dashboard);

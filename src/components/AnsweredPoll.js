@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
   MDBCard,
@@ -89,6 +90,11 @@ function mapStateToProps({ authedUser, polls }, { id }) {
     authedUser,
     poll,
   };
+}
+
+AnsweredPoll.propTypes = {
+  authedUser: PropTypes.string,
+  poll: PropTypes.object.isRequired,
 }
 
 export default connect(mapStateToProps)(AnsweredPoll);
